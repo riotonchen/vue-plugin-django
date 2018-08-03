@@ -1,10 +1,10 @@
-from django.conf.urls import url
+from django.urls import path,include,re_path
 from django.views.generic import TemplateView
 
 urlpatterns = [
     <%_ if (options.history) { _%>
-    url(r'^.*$', TemplateView.as_view(template_name='client/index.html'), name="client"),
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
     <%_ } else {_%>
-    url(r'^/?$', TemplateView.as_view(template_name='client/index.html'), name="client"),
+    re_path(r'^/?$', TemplateView.as_view(template_name='index.html')),
     <%_ } _%>
 ]
